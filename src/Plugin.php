@@ -6,6 +6,7 @@ use Cake\Core\BasePlugin;
 use Cake\Core\PluginApplicationInterface;
 use Cake\Core\Configure;
 use Cake\Utility\Hash;
+use FloodgateSDK\FloodgateClient;
 
 /**
  * Plugin for FloodgateCake
@@ -26,6 +27,7 @@ class Plugin extends BasePlugin
       throw new \InvalidArgumentException('Floodgate SDK Key not provided.');
     }
 
-
+    $client = new FloodgateClient($sdkkey);
+    debug($client);
   }
 }

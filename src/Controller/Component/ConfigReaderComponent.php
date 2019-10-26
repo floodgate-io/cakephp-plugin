@@ -17,13 +17,13 @@ class ConfigReaderComponent extends Component
 
       // App::import('Vendor', 'FloodgateCake.FloodgateSDK/filename');
 
-      $user = new \FloodgateSDK\User('id');
-      $client = new FloodgateClient($sdkkey);
-      // $client = new \FloodgateCake\FloodgateSDK\FloodgateClient\FloodgateClient($sdkkey);
+      // $user = new \FloodgateSDK\User('id');
+      // $client = new FloodgateClient($sdkkey);
+      // // $client = new \FloodgateCake\FloodgateSDK\FloodgateClient\FloodgateClient($sdkkey);
 
       
 
-      debug($client);
+      // debug($client);
     }
 
     public function doComplexOperation($amount1, $amount2)
