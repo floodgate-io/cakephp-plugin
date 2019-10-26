@@ -1,0 +1,24 @@
+{
+    "name": "floodgate/floodgate-cakephp",
+    "description": "Floodgate plugin for CakePHP",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "require": {
+        "cakephp/cakephp": "^3.5",
+        "floodgate/floodgate-php-sdk": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7.14|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FloodgateCake\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FloodgateCake\\Test\\": "tests/",
+            "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
+        }
+    }
+}
