@@ -25,24 +25,24 @@ class FloodgateClientComponent extends Component
       $this->client = new FloodgateClient($sdkkey);
     }
     else {
-      // $clientConfig['timeout'] = !empty($config['timeout']) ? $config['timeout'] : 10;
-      $timeout = !empty($config['timeout']) ? $config['timeout'] : 10;
+      $clientconfig['timeout'] = 10;
 
-      // if (!empty($config['logger'])) {
-      //   $clientConfig['logger']
-      // }
+      if (!empty($config['timeout'])) {
+        $clientconfig['timeout'] = $config['timeout'];
+      }
 
-      $this->client = new FloodgateClient($sdkkey,
-      [
-        'timeout' => $timeout,
-        // 'logger' => new \FloodgateSDK\Loggers\FileLogger('C:\Users\mathe\Source\Repos\floodgate.io\temp\cake-log-plugin.txt'),
-        // 'cache' => new \FloodgateSDK\Cache\FloodgateCache(new \FloodgateSDK\Cache\ArrayCache()),
-        'cache' => new \FloodgateSDK\Cache\FloodgateCache(\Cake\Cache\Cache::pool("default"))
-      ]);
+      if (!empty($config['logpath'])) {
+        $clientconfig['logger'] = new \FloodgateSDK\Loggers\FileLogger($config['logpath']);
+      }
+
+      // new \FloodgateSDK\Cache\FloodgateCache(new \FloodgateSDK\Cache\ArrayCache())
+      $clientconfig['cache'] = new \FloodgateSDK\Cache\FloodgateCache(\Cake\Cache\Cache::pool("default"));
+
+      $this->client = new FloodgateClient($sdkkey, $clientconfig);
     }
   }
 
-  public function GetValue($key, $defaultValue, $user = [])
+  public function GetValue($key, $defaultValue, $user = null)
   {
     if (empty($user)) {
       return $this->client->GetValue($key, $defaultValue);
