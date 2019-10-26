@@ -23,7 +23,7 @@ class Plugin extends BasePlugin
     $config = (array)Configure::read('Floodgate');
     $sdkkey = Hash::get($config, 'sdkkey');
     if (!$sdkkey) {
-      throw new InvalidArgumentException('Floodgate SDK Key not provided.');
+      throw new \InvalidArgumentException('Floodgate SDK Key not provided.');
     }
 
 
