@@ -19,6 +19,8 @@ bin\cake plugin load FloodgateCake -b
 Configure your CakePHP application with your Floodgate SDK Key
 
 ```php
+// /config/app.php
+
 'Floodgate' => [
   'sdkkey' => 'enter-your-sdk-key'
 ],
@@ -34,7 +36,7 @@ $this->loadComponent('FloodgateCake.FloodgateClient');
 Below is an example of a simple implementation of getting a single flag value from inside a controller.
 
 ```php
-// src/Controller/MyController.php
+// /src/Controller/MyController.php
 
 $result = $this->FloodgateClient->GetValue('feature-flag-key', false);
 
