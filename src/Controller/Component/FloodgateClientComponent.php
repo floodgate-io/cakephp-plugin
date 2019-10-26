@@ -2,6 +2,8 @@
 namespace FloodgateCake\Controller\Component;
 
 use Cake\Controller\Component;
+use Cake\Core\Configure;
+use Cake\Utility\Hash;
 use FloodgateSDK\FloodgateClient;
 
 class FloodgateClientComponent extends Component
