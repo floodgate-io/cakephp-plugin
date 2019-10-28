@@ -28,6 +28,8 @@ Configure your CakePHP application with your Floodgate SDK Key
 
 Load the Floodgate CakePHP Plugin Component
 ```php
+// Controller/AppController.php
+
 $this->loadComponent('FloodgateCake.FloodgateClient');
 ```
 
